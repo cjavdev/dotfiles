@@ -107,3 +107,4 @@ alias gs="git status"
 export PATH="$HOME/.bin:$PATH"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
+source $(brew --prefix asdf)/asdf.sh

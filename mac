@@ -107,6 +107,7 @@ brew "fzf"
 brew "neovim"
 brew "zsh"
 brew "heroku"
+brew "stripe/stripe-cli/stripe"
 
 # GitHub
 brew "gh"
