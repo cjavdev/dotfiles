@@ -1,4 +1,4 @@
-# @cjav_dev's .files
+# @cjav_dev's dotfiles
 
 Inspired by Thoughtbot's [laptop](https://github.com/thoughtbot/laptop).
 
