@@ -1,0 +1,36 @@
+" Pluigs town
+set nocompatible
+
+
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'garbas/vim-snipmate'
+" Plugin 'w1zeman1p/vim-snippets'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'rking/ag.vim'
+" Plugin 'sheerun/vim-polyglot'
+" Plugin 'vim-test/vim-test'
+Plugin 'joshdick/onedark.vim'
+" Plugin 'tpope/vim-rails'
+
+" Plugin 'tpope/vim-surround'
+" Plugin '907th/vim-auto-save'
+" Plugin 'thoughtbot/vim-rspec'
+" Plugin 'maksimr/vim-jsbeautify'
+" Plugin 'einars/js-beautify'
+" Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+" Plugin 'prettier/vim-prettier', { 'do': 'yarn install' }
+" Plugin 'sbdchd/neoformat', { 'for': ['javascript', 'javascript.jsx'] }
+
+call vundle#end()
+filetype plugin indent on
