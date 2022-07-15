@@ -108,9 +108,13 @@ brew "neovim"
 brew "zsh"
 brew "heroku"
 brew "stripe/stripe-cli/stripe"
+brew "the_silver_searcher"
+brew "ffmpeg"
+brew "wget"
 
 # GitHub
 brew "gh"
+brew "jq"
 
 # Image manipulation
 brew "imagemagick"
