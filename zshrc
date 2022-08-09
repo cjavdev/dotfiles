@@ -109,3 +109,4 @@ export PATH="$HOME/.bin:$PATH"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 source $(brew --prefix asdf)/asdf.sh
 EDITOR=vi
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
