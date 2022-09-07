@@ -110,10 +110,15 @@ brew "zsh"
 brew "heroku"
 brew "stripe/stripe-cli/stripe"
 brew "the_silver_searcher"
-brew "ffmpeg"
 brew "wget"
+
+# Image and video
 brew "vips"
+brew "ffmpeg"
+
+# Languages
 brew "php"
+brew "maven"
 
 # GitHub
 brew "gh"
@@ -128,7 +133,7 @@ brew "coreutils"
 brew "yarn"
 
 # Databases
-brew "postgres", restart_service: :changed
+brew "postgresql@14", restart_service: :changed
 brew "redis", restart_service: :changed
 EOF
 
@@ -158,11 +163,18 @@ add_or_update_asdf_plugin() {
 . "$(brew --prefix asdf)/asdf.sh"
 add_or_update_asdf_plugin "ruby" "https://github.com/asdf-vm/asdf-ruby.git"
 add_or_update_asdf_plugin "nodejs" "https://github.com/asdf-vm/asdf-nodejs.git"
+add_or_update_asdf_plugin "java" "https://github.com/halcyon/asdf-java.git"
 
+# Accepts optional version as second argument
 install_asdf_language() {
   local language="$1"
   local version
-  version="$(asdf list-all "$language" | grep -v "[a-z]" | tail -1)"
+  if [ -z "$2" ];
+  then
+    version="$(asdf list-all "$language" | grep -v "[a-z]" | tail -1)"
+  else
+    version="$2"
+  fi
 
   if ! asdf list "$language" | grep -Fq "$version"; then
     asdf install "$language" "$version"
@@ -178,6 +190,9 @@ bundle config --global jobs $((number_of_cores - 1))
 
 fancy_echo "Installing latest Node ..."
 install_asdf_language "nodejs"
+
+fancy_echo "Installing latest Java ..."
+install_asdf_language "java" "openjdk-18"
 
 if [ -f "$HOME/.laptop.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop.local ..."
