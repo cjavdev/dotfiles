@@ -103,6 +103,8 @@ alias vi="nvim"
 alias iv="nvim"
 alias v="nvim"
 alias gs="git status"
+alias artisan="php artisan"
+alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 
 export PATH="$HOME/.bin:$PATH"
 
