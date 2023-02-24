@@ -192,6 +192,7 @@ bundle config --global jobs $((number_of_cores - 1))
 
 fancy_echo "Installing latest Node ..."
 install_asdf_language "nodejs"
+install_asdf_language "nodejs" "16.18.0"
 
 fancy_echo "Installing latest Java ..."
 install_asdf_language "java" "openjdk-18"

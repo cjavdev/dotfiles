@@ -105,11 +105,15 @@ alias v="nvim"
 alias gs="git status"
 alias artisan="php artisan"
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+alias $=''
 
 export PATH="$HOME/.bin:$PATH"
+export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-source $(brew --prefix asdf)/asdf.sh
+# source $(brew --prefix asdf)/asdf.sh
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 EDITOR=vi
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 source "$HOME/.cargo/env"
+
