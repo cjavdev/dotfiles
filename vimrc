@@ -87,14 +87,6 @@ set numberwidth=5
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
-" " vim-rspec mappings
-" let g:rspec_command = "!bundle exec rspec {spec}"
-" nnoremap <Leader>e :call RunAllSpecs()<CR>
-" nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
-" nnoremap <Leader>s :call RunNearestSpec()<CR>
-" " nnoremap <Leader>l :call RunLastSpec()<CR>
-" nnoremap <Leader>c :RuboCop<CR>
-
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
