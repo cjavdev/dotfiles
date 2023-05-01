@@ -96,8 +96,6 @@ fi
 fancy_echo "Updating Homebrew formulae ..."
 brew update --force # https://github.com/Homebrew/brew/issues/1151
 brew bundle --file=- <<EOF
-# tap "thoughtbot/formulae"
-# tap "homebrew/services"
 tap "heroku/brew"
 
 
@@ -107,8 +105,6 @@ brew "openssl"
 brew "fzf"
 brew "neovim"
 brew "zsh"
-brew "heroku"
-brew "stripe/stripe-cli/stripe"
 brew "the_silver_searcher"
 brew "wget"
 
@@ -116,16 +112,9 @@ brew "wget"
 brew "vips"
 brew "ffmpeg"
 
-# Languages
-brew "php"
-brew "maven"
-
 # GitHub
 brew "gh"
 brew "jq"
-
-# Image manipulation
-brew "imagemagick"
 
 # Programming language prerequisites and package managers
 brew "libyaml" # should come after openssl
@@ -133,18 +122,18 @@ brew "coreutils"
 brew "yarn"
 
 # Databases
-brew "postgresql@14", restart_service: :changed
+# brew "postgresql@14", restart_service: :changed
 brew "redis", restart_service: :changed
 EOF
 
-fancy_echo "Update heroku binary ..."
-brew unlink heroku
-brew link --force heroku
+# fancy_echo "Update heroku binary ..."
+# brew unlink heroku
+# brew link --force heroku
 
 fancy_echo "Configuring asdf version manager ..."
 if [ ! -d "$HOME/.asdf" ]; then
   brew install asdf
-  append_to_zshrc "source $(brew --prefix asdf)/asdf.sh" 1
+  append_to_zshrc "source $(brew --prefix asdf)/libexec/asdf.sh" 1
 fi
 
 alias install_asdf_plugin=add_or_update_asdf_plugin
@@ -160,12 +149,9 @@ add_or_update_asdf_plugin() {
 }
 
 # shellcheck disable=SC1090
-. "$(brew --prefix asdf)/asdf.sh"
+. "$(brew --prefix asdf)/libexec/asdf.sh"
 add_or_update_asdf_plugin "ruby" "https://github.com/asdf-vm/asdf-ruby.git"
 add_or_update_asdf_plugin "nodejs" "https://github.com/asdf-vm/asdf-nodejs.git"
-add_or_update_asdf_plugin "java" "https://github.com/halcyon/asdf-java.git"
-add_or_update_asdf_plugin "golang" "https://github.com/kennyp/asdf-golang.git"
-add_or_update_asdf_plugin "dotnet-core" "https://github.com/emersonsoares/asdf-dotnet-core.git"
 
 # Accepts optional version as second argument
 install_asdf_language() {
@@ -192,16 +178,8 @@ bundle config --global jobs $((number_of_cores - 1))
 
 fancy_echo "Installing latest Node ..."
 install_asdf_language "nodejs"
-install_asdf_language "nodejs" "16.18.0"
+install_asdf_language "nodejs" "18.16.0"
 
-fancy_echo "Installing latest Java ..."
-install_asdf_language "java" "openjdk-18"
-
-fancy_echo "Installing latest Go ..."
-install_asdf_language "golang"
-
-fancy_echo "Installing latest .NET ..."
-install_asdf_language "dotnet-core"
 
 if [ -f "$HOME/.laptop.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop.local ..."
