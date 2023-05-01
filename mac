@@ -124,6 +124,10 @@ brew "yarn"
 # Databases
 # brew "postgresql@14", restart_service: :changed
 brew "redis", restart_service: :changed
+
+# Dependencies
+brew "pnpm"
+brew "stripe/stripe-cli/stripe"
 EOF
 
 # fancy_echo "Update heroku binary ..."
@@ -198,12 +202,22 @@ fancy_echo "Creating nvim folder if it doesnt exist"
 mkdir -p ~/.config/nvim
 
 
+fancy_echo "Symlinking..."
 ln -sf ~/repos/dotfiles/vimrc ~/.config/nvim/init.vim
 ln -sf ~/repos/dotfiles/vimrc.bundles ~/.vimrc.bundles
 cp ~/repos/dotfiles/cjav_dev.zsh-theme ~/.oh-my-zsh/themes/cjav_dev.zsh-theme
 
 fancy_echo "Cloning vundle"
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-fancy_echo "Installing plugins"
-vim +PluginInstall +qall
+if [ ! "$HOME/.vim/bundle/Vundle.vim" ]; then
+  fancy_echo "Installing Vundle"
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+  fancy_echo "Installing plugins"
+  vim +PluginInstall +qall
+fi
+
+
+fancy_echo "pnpm setup"
+pnpm setup
+pnpm install turbo --global

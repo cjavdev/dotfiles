@@ -115,3 +115,12 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 EDITOR=vi
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
+# pnpm
+export PNPM_HOME="/Users/cjavilla/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
