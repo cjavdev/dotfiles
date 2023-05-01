@@ -193,6 +193,17 @@ fi
 
 rm ~/.zshrc
 ln -sf ~/repos/dotfiles/zshrc ~/.zshrc
+
+fancy_echo "Creating nvim folder if it doesnt exist"
+mkdir -p ~/.config/nvim
+
+
 ln -sf ~/repos/dotfiles/vimrc ~/.config/nvim/init.vim
 ln -sf ~/repos/dotfiles/vimrc.bundles ~/.vimrc.bundles
 cp ~/repos/dotfiles/cjav_dev.zsh-theme ~/.oh-my-zsh/themes/cjav_dev.zsh-theme
+
+fancy_echo "Cloning vundle"
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+fancy_echo "Installing plugins"
+vim +PluginInstall +qall
