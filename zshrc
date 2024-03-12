@@ -97,8 +97,6 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi="nvim"
 alias iv="nvim"
 alias v="nvim"
@@ -113,7 +111,7 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 # source $(brew --prefix asdf)/asdf.sh
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
-EDITOR=vi
+export EDITOR=nvim
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 # pnpm
@@ -124,3 +122,5 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES

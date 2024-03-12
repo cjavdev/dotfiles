@@ -56,15 +56,11 @@ vim.opt.termguicolors = true
 require("nvim-tree").setup()
 
 -- OR setup with some options
+
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
   view = {
     adaptive_size = true,
-    mappings = {
-      list = {
-        { key = "u", action = "dir_up" },
-      },
-    },
   },
   renderer = {
     group_empty = true,
@@ -73,11 +69,19 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
 })
+
+local butterfish = require('butterfish')
+butterfish.active_color_group = "MoreMsg"
+local opts = {noremap = true, silent = true}
+
+require("telescope").setup {
+  defaults = { file_ignore_patterns = { "node_modules" } }
+}
+require('telescope').load_extension('fzf')
 EOF
 
-nmap <c-p> :FZF<cr>
-map <Leader>f :files<CR>
-map <Leader>a :Ag<CR>
+nmap <c-p> <cmd>Telescope find_files hidden=true<cr>
+map <Leader>f <cmd>Telescope live_grep<cr>
 
 set number
 set relativenumber
@@ -87,6 +91,9 @@ set numberwidth=5
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
+let g:ale_linters = {'ruby': ['ruby', 'rubocop']}
+let g:ale_fixers = {'ruby': ['rubocop']}
+let g:ale_fix_on_save = 1
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'

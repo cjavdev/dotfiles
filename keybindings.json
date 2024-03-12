@@ -1,0 +1,12 @@
+[
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.terminal.clear",
+    "when": "terminalFocus"
+  },
+  {"key": "alt+f", "command": "cursorWordEndRight"},
+  {"key": "alt+b", "command": "cursorWordStartLeft"},
+  {"key": "ctrl+a", "command": "cursorLineStart"},
+  {"key": "ctrl+e", "command": "cursorLineEnd"},
+  {"key": "ctrl+w", "command": "deleteWordLeft", "when": "editorTextFocus && vim.mode == 'Insert'"}
+]

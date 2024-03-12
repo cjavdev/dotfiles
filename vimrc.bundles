@@ -1,39 +1,25 @@
-" Pluigs town
-set nocompatible
+call plug#begin()
 
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Colors
+Plug 'cjavdev/night-owl.vim'
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
+" Plug 'rking/ag.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
-Plugin 'tomtom/tcomment_vim'
-Plugin 'cjavdev/night-owl.vim'
+Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
+Plug 'nvim-tree/nvim-tree.lua'
 
-Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plugin 'junegunn/fzf.vim'
-Plugin 'rking/ag.vim'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-test/vim-test'
+Plug 'dense-analysis/ale'
 
-Plugin 'nvim-tree/nvim-web-devicons' " optional, for file icons
-Plugin 'nvim-tree/nvim-tree.lua'
-Plugin 'github/copilot.vim'
+Plug 'github/copilot.vim'
+Plug 'bakks/butterfish.nvim'
 
-Plugin 'tpope/vim-rails'
-Plugin 'vim-test/vim-test'
-
-" Stuff to maybe re-enable at some point later?
-" Plugin 'dense-analysis/ale'
-" Plugin 'sheerun/vim-polyglot'
-" Plugin 'tpope/vim-surround'
-" Plugin '907th/vim-auto-save'
-" Plugin 'thoughtbot/vim-rspec'
-" Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-" Plugin 'sbdchd/neoformat', { 'for': ['javascript', 'javascript.jsx'] }
-" Plugin 'MarcWeber/vim-addon-mw-utils'
-" Plugin 'tomtom/tlib_vim'
-" Plugin 'garbas/vim-snipmate'
-" Plugin 'w1zeman1p/vim-snippets'
-
-call vundle#end()
-filetype plugin indent on
+call plug#end()
