@@ -91,8 +91,8 @@ set numberwidth=5
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
-let g:ale_linters = {'ruby': ['ruby', 'rubocop']}
-let g:ale_fixers = {'ruby': ['rubocop']}
+let g:ale_linters = {'ruby': ['ruby', 'rubocop'], 'eruby': ['erblint']}
+let g:ale_fixers = {'ruby': ['rubocop'], 'eruby': ['erblint']}
 let g:ale_fix_on_save = 1
 
 " Treat <li> and <p> tags like the block tags they are
