@@ -6,7 +6,7 @@ vim.opt.autowrite = true -- Automatically write before running commands
 vim.opt.backspace = "indent,eol,start" -- Backspace works like most programs
 vim.opt.expandtab = true -- Expand tabs to spaces
 vim.opt.fileformat = "unix" -- Unix file format
-vim.opt.history = 50 -- Keep 50 lines of command history
+vim.opt.history = 500 -- Keep 50 lines of command history
 vim.opt.incsearch = true -- Incremental search
 vim.opt.laststatus = 2 -- Always display the status line
 vim.opt.backup = false -- Disable backup
@@ -23,12 +23,10 @@ vim.opt.wrap = false -- Disable wrapping
 -- Tabs and Indentation
 vim.opt.tabstop = 2 -- Number of spaces tabs count for
 vim.opt.shiftwidth = 2 -- Size of an indent
-vim.opt.shiftround = true -- Round indent
-vim.opt.expandtab = true -- Use spaces instead of tabs
 
 -- Display extra whitespace
 vim.opt.list = true
-vim.opt.listchars = { tab = "»·", trail = "·", nbsp = "·" }
+vim.opt.listchars = { tab = "»·", trail = "·", nbsp = "." }
 
 -- Number settings
 vim.opt.number = true
