@@ -75,9 +75,26 @@ butterfish.active_color_group = "MoreMsg"
 local opts = {noremap = true, silent = true}
 
 require("telescope").setup {
-  defaults = { file_ignore_patterns = { "node_modules" } }
+  defaults = { file_ignore_patterns = { "node_modules", ".git" } },
+  extensions = {
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "ignore_case",        -- or "ignore_case" or "respect_case"
+                                       -- the default case_mode is "smart_case"
+    }
+  }
 }
 require('telescope').load_extension('fzf')
+
+local lspconfig = require("lspconfig")
+
+lspconfig.ruby_lsp.setup({
+  cmd = { "bundle", "exec", "ruby-lsp" }
+})
+
+lspconfig.stimulus_ls.setup{}
 EOF
 
 nmap <c-p> <cmd>Telescope find_files hidden=true<cr>

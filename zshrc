@@ -124,3 +124,10 @@ esac
 
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+eval "$(fzf --zsh)"
+
+# bun
+export BUN_INSTALL="$HOME/Library/Application Support/reflex/bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="/Users/cjavilla/repos/whisper.cpp:$PATH"

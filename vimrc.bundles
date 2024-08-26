@@ -22,5 +22,6 @@ Plug 'dense-analysis/ale'
 Plug 'github/copilot.vim'
 Plug 'bakks/butterfish.nvim'
 Plug 'laytan/tailwind-sorter.nvim'
+Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
