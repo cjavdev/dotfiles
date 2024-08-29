@@ -16,8 +16,7 @@ vim.opt.shell = "/bin/bash" -- Use bash shell
 vim.opt.showcmd = true -- Display incomplete commands
 vim.opt.shiftround = true -- Round indent
 vim.opt.termguicolors = true -- Use GUI colors for terminal
--- vim.opt.t_Co = "256"           -- Use more colors (256)
-vim.opt.colorcolumn = "49" -- Show color column at 49
+-- vim.opt.colorcolumn = "49" -- Show color column at 49 (For Vertical Video)
 vim.opt.wrap = false -- Disable wrapping
 
 -- Tabs and Indentation
@@ -36,34 +35,10 @@ vim.opt.numberwidth = 5
 -- Toggle between last two files
 vim.api.nvim_set_keymap("n", "<Leader><Leader>", "<C-^>", { noremap = true, silent = true })
 
--- ALE configuration
-vim.g.ale_linters = { ruby = { "ruby", "rubocop" }, eruby = { "erblint" } }
-vim.g.ale_fixers = { ruby = { "rubocop" }, eruby = { "erblint" } }
-vim.g.ale_fix_on_save = 1
+-- Always trim whitespace on save
+vim.cmd([[autocmd BufWritePre * %s/\s\+$//e]])
 
--- HTML indentation
-vim.g.html_indent_tags = "li\\|p"
-
--- Quicker window movement
-vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
-
--- Function to strip trailing whitespace
-local function strip_trailing_whitespace()
-	local pos = vim.api.nvim_win_get_cursor(0)
-	vim.cmd([[ %s/\s\+$//e ]])
-	vim.api.nvim_win_set_cursor(0, pos)
-end
-
--- Autocommand to strip trailing whitespace before saving
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = "*",
-	callback = strip_trailing_whitespace,
-})
-
--- Commands to correct common typos
+-- Commands to correct common typo
 vim.cmd("command! WQ wq")
 vim.cmd("command! Wq wq")
 vim.cmd("command! W w")
