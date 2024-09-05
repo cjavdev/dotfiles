@@ -172,6 +172,7 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
+		event = { "InsertEnter", "CmdLineEnter" },
 		---@param opts cmp.ConfigSchema
 		opts = function(_, opts)
 			local has_words_before = function()
@@ -186,34 +187,54 @@ return {
 			opts.sources = cmp.config.sources({
 				{ name = "copilot" },
 				{ name = "nvim_lsp" },
-				-- { name = "buffer" },
+				{ name = "buffer" },
 				-- { name = "path" },
 				-- { name = "emoji" },
 				-- { name = "treesitter" },
 			})
 
-			opts.mapping = vim.tbl_extend("force", opts.mapping, {
-				["<Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						-- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
-						-- cmp.select_next_item()
-						cmp.confirm({ select = true })
-					elseif vim.snippet.active({ direction = 1 }) then
-						vim.schedule(function()
-							vim.snippet.jump(1)
-						end)
-					elseif has_words_before() then
-						cmp.complete()
-					else
-						fallback()
-					end
-				end, { "i", "s" }),
-				-- ["<C-f>"] = cmp.mapping.confirm({ select = true }),
-				-- Remove the default Enter key mapping
-				["<CR>"] = function(fallback)
-					fallback()
-				end,
+			opts.mapping = cmp.mapping.preset.insert({
+				["<C-f>"] = cmp.mapping.confirm({ select = true }),
+				["<Tab>"] = cmp.mapping.confirm({ select = true }),
 			})
+
+			-- opts.mapping = vim.tbl_extend("force", opts.mapping, {
+			-- 	["<Tab>"] = cmp.mapping(function(fallback)
+			-- 		if cmp.visible() then
+			-- 			-- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
+			-- 			-- cmp.select_next_item()
+			-- 			cmp.confirm({ select = true })
+			-- 		elseif vim.snippet.active({ direction = 1 }) then
+			-- 			vim.schedule(function()
+			-- 				vim.snippet.jump(1)
+			-- 			end)
+			-- 		elseif has_words_before() then
+			-- 			cmp.complete()
+			-- 		else
+			-- 			fallback()
+			-- 		end
+			-- 	end, { "i", "s" }),
+			-- 	["<C-f>"] = cmp.mapping.confirm({ select = true }),
+			-- 	-- ["<C-f>"] = cmp.mapping(function(fallback)
+			-- 	-- 	if cmp.visible() then
+			-- 	-- 		-- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
+			-- 	-- 		-- cmp.select_next_item()
+			-- 	-- 		cmp.confirm({ select = true })
+			-- 	-- 	elseif vim.snippet.active({ direction = 1 }) then
+			-- 	-- 		vim.schedule(function()
+			-- 	-- 			vim.snippet.jump(1)
+			-- 	-- 		end)
+			-- 	-- 	elseif has_words_before() then
+			-- 	-- 		cmp.complete()
+			-- 	-- 	else
+			-- 	-- 		fallback()
+			-- 	-- 	end
+			-- 	-- end, { "i" }),
+			-- 	-- Remove the default Enter key mapping
+			-- 	["<CR>"] = function(fallback)
+			-- 		fallback()
+			-- 	end,
+			-- })
 		end,
 	},
 	{
@@ -325,6 +346,7 @@ return {
 						mason = false,
 						cmd = { vim.fn.expand("~/.asdf/shims/ruby-lsp") },
 					},
+					rubocop = {},
 					lua_ls = {},
 				},
 				-- you can do any additional lsp server setup here

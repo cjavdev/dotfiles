@@ -1,0 +1,41 @@
+[
+  {
+    "key": "ctrl+e",
+    "command": "-extension.vim_ctrl+e",
+    "when": "editorTextFocus && vim.active && vim.use<C-e> && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+a",
+    "command": "-extension.vim_ctrl+a",
+    "when": "editorTextFocus && vim.active && vim.use<C-a> && !inDebugRepl"
+  },
+  {
+    "key": "ctrl-k",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl-l",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpen"
+  },
+  {
+    "key": "enter",
+    "command": "list.select",
+    "when": "explorerViewletFocus && !inputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "explorerViewletFocus && !inputFocus"
+  },
+  {
+    "key": "cmd+s",
+    "command": "extension.vim_escape",
+    "when": "editorTextFocus && vim.active && vim.use<D-a> && !inDebugRepl && vim.mode == 'Insert'"
+  }
+]
