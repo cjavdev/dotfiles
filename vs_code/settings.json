@@ -1,17 +1,158 @@
 {
+  "editor.autoClosingBrackets": "never",
+  "editor.detectIndentation": false,
   "editor.inlineSuggest.enabled": true,
   "editor.tabSize": 2,
-  "security.workspace.trust.untrustedFiles": "open",
-  "vim.digraphs": {},
-  "typescript.updateImportsOnFileMove.enabled": "always",
+  "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  "editor.detectIndentation": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "explorer.confirmDelete": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "security.promptForLocalFileProtocolHandling": false,
+  "window.zoomLevel": 0.001,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 500,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vim.digraphs": {},
+  "vim.leader": " ",
+  "workbench.colorTheme": "Night Owl",
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<C-s>"],
+      "commands": [
+        { "command": "workbench.action.files.save" },
+        { "command": "extension.vim_escape" }
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<leader>", "a"],
+      "commands": [
+        {
+          "command": "workbench.action.terminal.sendSequence",
+          "args": {
+            "text": "bin/rails test \"${file}\"\u000D"
+          }
+        }
+      ]
+    },
+    {
+      "before": ["<leader>", "h"],
+      "commands": [
+        {
+          "command": "workbench.action.terminal.sendSequence",
+          "args": {
+            "text": "bin/rails test \"${file}:${lineNumber}\"\u000D"
+          }
+        }
+      ]
+    },
+    {
+      "before": ["<leader>", "\\"],
+      "commands": [
+        {
+          "command": "workbench.action.splitEditorRight"
+        }
+      ]
+    },
+    {
+      "before": ["<leader>", "-"],
+      "commands": [
+        {
+          "command": "workbench.action.splitEditorDown"
+        }
+      ]
+    },
+    {
+      "before": ["<C-h>"],
+      "commands": [
+        {
+          "command": "workbench.action.focusLeftGroup"
+        }
+      ]
+    },
+    {
+      "before": ["<C-h>"],
+      "commands": [
+        {
+          "command": "workbench.action.focusLeftGroup"
+        }
+      ]
+    },
+    {
+      "before": ["<C-l>"],
+      "commands": [
+        {
+          "command": "workbench.action.focusRightGroup"
+        }
+      ]
+    },
+    {
+      "before": ["<C-k>"],
+      "commands": [
+        {
+          "command": "workbench.action.focusAboveGroup"
+        }
+      ]
+    },
+    {
+      "before": ["<C-j>"],
+      "commands": [
+        {
+          "command": "workbench.action.focusBelowGroup"
+        },
+        {
+          "command": "workbench.action.terminal.focus",
+          "when": "editorGroup == 'bottom'"
+        }
+      ]
+    },
+    {
+      "before": ["<leader>", "v"],
+      "commands": [
+        {
+          "command": "workbench.files.action.showActiveFileInExplorer"
+        }
+      ]
+    },
+    {
+      "before": ["g", "f"],
+      "commands": [
+        {
+          "command": "editor.action.revealDefinition"
+        }
+      ]
+    }
+  ],
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "rubyLsp.enabledFeatures": {
+    "codeActions": true,
+    "diagnostics": true,
+    "documentHighlights": true,
+    "documentLink": true,
+    "documentSymbols": true,
+    "foldingRanges": true,
+    "formatting": true,
+    "hover": true,
+    "inlayHint": true,
+    "onTypeFormatting": true,
+    "selectionRanges": true,
+    "semanticHighlighting": true,
+    "completion": true,
+    "codeLens": true,
+    "definition": true,
+    "workspaceSymbol": true,
+    "signatureHelp": true,
+    "typeHierarchy": true
+  },
   "headwind.defaultSortOrder": [
     "container",
     "box-border",
@@ -1767,123 +1908,7 @@
     "stroke-2",
     "clear-left"
   ],
-  "window.zoomLevel": 1,
-  "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 500,
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "vim.leader": " ",
-  "workbench.colorTheme": "Night Owl",
-  "vim.normalModeKeyBindings": [
-    {
-      "before": ["<leader>", "a"],
-      "commands": [
-        {
-          "command": "workbench.action.terminal.sendSequence",
-          "args": {
-            "text": "bin/rails test \"${file}\"\u000D"
-          }
-        }
-      ]
-    },
-    {
-      "before": ["<leader>", "h"],
-      "commands": [
-        {
-          "command": "workbench.action.terminal.sendSequence",
-          "args": {
-            "text": "bin/rails test \"${file}:${lineNumber}\"\u000D"
-          }
-        }
-      ]
-    },
-    {
-      "before": ["<leader>", "\\"],
-      "commands": [
-        {
-          "command": "workbench.action.splitEditorRight"
-        }
-      ]
-    },
-    {
-      "before": ["<leader>", "-"],
-      "commands": [
-        {
-          "command": "workbench.action.splitEditorDown"
-        }
-      ]
-    },
-    {
-      "before": ["<C-h>"],
-      "commands": [
-        {
-          "command": "workbench.action.focusLeftGroup"
-        }
-      ]
-    },
-    {
-      "before": ["<C-h>"],
-      "commands": [
-        {
-          "command": "workbench.action.focusLeftGroup"
-        }
-      ]
-    },
-    {
-      "before": ["<C-l>"],
-      "commands": [
-        {
-          "command": "workbench.action.focusRightGroup"
-        }
-      ]
-    },
-    {
-      "before": ["<C-k>"],
-      "commands": [
-        {
-          "command": "workbench.action.focusAboveGroup"
-        }
-      ]
-    },
-    {
-      "before": ["<C-j>"],
-      "commands": [
-        {
-          "command": "workbench.action.focusBelowGroup"
-        }
-      ]
-    },
-    {
-      "before": ["<leader>", "v"],
-      "commands": [
-        {
-          "command": "workbench.files.action.showActiveFileInExplorer"
-        }
-      ]
-    }
-  ],
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "rubyLsp.enabledFeatures": {
-    "codeActions": true,
-    "diagnostics": true,
-    "documentHighlights": true,
-    "documentLink": true,
-    "documentSymbols": true,
-    "foldingRanges": true,
-    "formatting": true,
-    "hover": true,
-    "inlayHint": true,
-    "onTypeFormatting": true,
-    "selectionRanges": true,
-    "semanticHighlighting": true,
-    "completion": true,
-    "codeLens": true,
-    "definition": true,
-    "workspaceSymbol": true,
-    "signatureHelp": true,
-    "typeHierarchy": true
-  }
+  "workbench.activityBar.location": "hidden",
+  "continue.enableDebugLogs": true,
+  "rubocop.mode": "enableUnconditionally"
 }

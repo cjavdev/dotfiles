@@ -97,9 +97,16 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias vi="nvim"
-alias iv="nvim"
-alias v="nvim"
+# :(
+# alias vi="nvim"
+# alias iv="nvim"
+# alias v="nvim"
+#
+alias vi="code"
+alias iv="code"
+alias v="code"
+
+
 alias gs="git status"
 alias artisan="php artisan"
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'

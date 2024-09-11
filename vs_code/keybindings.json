@@ -37,5 +37,10 @@
     "key": "cmd+s",
     "command": "extension.vim_escape",
     "when": "editorTextFocus && vim.active && vim.use<D-a> && !inDebugRepl && vim.mode == 'Insert'"
+  },
+  {
+    "key": "n",
+    "command": "explorer.newFile", // o
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
   }
 ]
