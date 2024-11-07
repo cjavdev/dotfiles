@@ -7,6 +7,7 @@
   "explorer.confirmDragAndDrop": false,
   "security.workspace.trust.untrustedFiles": "open",
   "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.formatOnSave": true,
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -35,9 +36,16 @@
       "before": ["<leader>", "a"],
       "commands": [
         {
+          "command": "workbench.action.terminal.newWithProfile",
+          "when": "terminalProfileId != 'zsh'",
+          "args": {
+            "profileName": "zsh"
+          }
+        },
+        {
           "command": "workbench.action.terminal.sendSequence",
           "args": {
-            "text": "bin/rails test \"${file}\"\u000D"
+            "text": "\u000Dclear\u000Dbin/rails test \"${file}\"\u000D"
           }
         }
       ]
@@ -48,7 +56,7 @@
         {
           "command": "workbench.action.terminal.sendSequence",
           "args": {
-            "text": "bin/rails test \"${file}:${lineNumber}\"\u000D"
+            "text": "\u000Dclear\u000Dbin/rails test \"${file}:${lineNumber}\"\u000D"
           }
         }
       ]
@@ -1910,5 +1918,16 @@
   ],
   "workbench.activityBar.location": "hidden",
   "continue.enableDebugLogs": true,
-  "rubocop.mode": "enableUnconditionally"
+  "rubocop.mode": "enableUnconditionally",
+  "files.trimTrailingWhitespace": true,
+  "[erb]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[ruby]": {
+    "editor.defaultFormatter": "rubocop.vscode-rubocop"
+  },
+  "rubyLsp.enableExperimentalFeatures": true,
+  "rubyLsp.formatter": "rubocop",
+  "workbench.editor.editorActionsLocation": "titleBar",
+  "githubPullRequests.terminalLinksHandler": "github"
 }

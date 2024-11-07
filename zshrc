@@ -102,10 +102,13 @@ source $ZSH/oh-my-zsh.sh
 # alias iv="nvim"
 # alias v="nvim"
 #
-alias vi="code"
-alias iv="code"
-alias v="code"
+# alias vi="code"
+# alias iv="code"
+# alias v="code"
 
+alias vi="cursor"
+alias iv="cursor"
+alias v="cursor"
 
 alias gs="git status"
 alias artisan="php artisan"
