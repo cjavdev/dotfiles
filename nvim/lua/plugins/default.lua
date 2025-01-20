@@ -147,29 +147,29 @@ return {
 	-- 	},
 	-- 	-- See Commands section for default commands if you want to lazy load on them
 	-- },
-	{
-		"yetone/avante.nvim",
-		event = "VeryLazy",
-		build = "make", -- This is Optional, only if you want to use tiktoken_core to calculate tokens count
-		commit = "b661269b5b800af1ac72e8f4d8541a6a50cc7d62", -- to work with copilot
-		opts = {
-			provider = "copilot",
-		},
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-			"stevearc/dressing.nvim",
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-			--- The below is optional, make sure to setup it properly if you have lazy=true
-			{
-				"MeanderingProgrammer/render-markdown.nvim",
-				opts = {
-					file_types = { "markdown", "Avante" },
-				},
-				ft = { "markdown", "Avante" },
-			},
-		},
-	},
+	-- {
+	-- 	"yetone/avante.nvim",
+	-- 	event = "VeryLazy",
+	-- 	build = "make", -- This is Optional, only if you want to use tiktoken_core to calculate tokens count
+	-- 	commit = "b661269b5b800af1ac72e8f4d8541a6a50cc7d62", -- to work with copilot
+	-- 	opts = {
+	-- 		provider = "copilot",
+	-- 	},
+	-- 	dependencies = {
+	-- 		"nvim-tree/nvim-web-devicons",
+	-- 		"stevearc/dressing.nvim",
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		--- The below is optional, make sure to setup it properly if you have lazy=true
+	-- 		{
+	-- 			"MeanderingProgrammer/render-markdown.nvim",
+	-- 			opts = {
+	-- 				file_types = { "markdown", "Avante" },
+	-- 			},
+	-- 			ft = { "markdown", "Avante" },
+	-- 		},
+	-- 	},
+	-- },
 	{
 		"hrsh7th/nvim-cmp",
 		event = { "InsertEnter", "CmdLineEnter" },
@@ -256,7 +256,6 @@ return {
 					"tsserver",
 					"pyright",
 					"tailwindcss",
-					"ruby_lsp",
 				},
 			})
 

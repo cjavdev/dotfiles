@@ -19,8 +19,16 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
   "vim.digraphs": {},
   "vim.leader": " ",
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
   "workbench.colorTheme": "Night Owl",
   "vim.insertModeKeyBindingsNonRecursive": [
     {
@@ -1914,11 +1922,9 @@
   "rubocop.mode": "enableUnconditionally",
   "files.trimTrailingWhitespace": true,
   "[erb]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "Shopify.ruby-lsp"
   },
-  "[ruby]": {
-    "editor.defaultFormatter": "rubocop.vscode-rubocop"
-  },
+  "[ruby]": {},
   "rubyLsp.formatter": "rubocop",
   "workbench.editor.editorActionsLocation": "titleBar",
   "githubPullRequests.terminalLinksHandler": "github",
@@ -1926,5 +1932,8 @@
     "all": true
   },
   "terminal.integrated.scrollback": 100000000,
-  "terminal.integrated.persistentSessionScrollback": 100000000
+  "terminal.integrated.persistentSessionScrollback": 100000000,
+  "workbench.preferredDarkColorTheme": "Default High Contrast",
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true
 }
