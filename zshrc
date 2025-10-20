@@ -1,3 +1,5 @@
+# Amazon Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -70,7 +72,9 @@ ZSH_THEME="cjav_dev"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+#
+# TODO: Enable
+# plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -95,22 +99,13 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# :(
-# alias vi="nvim"
-# alias iv="nvim"
-# alias v="nvim"
-#
-# alias vi="code"
-# alias iv="code"
-# alias v="code"
-
-alias vi="cursor"
-alias iv="cursor"
-alias v="cursor"
+alias vi="nvim"
+alias iv="nvim"
+alias v="nvim"
 
 alias gs="git status"
+alias gd="git diff"
+alias ga="git add"
 alias artisan="php artisan"
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 alias $=''
@@ -124,20 +119,34 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 export EDITOR=nvim
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
-# pnpm
-export PNPM_HOME="/Users/cjavilla/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+
+. ~/.asdf/plugins/golang/set-env.zsh
+
 
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+export CXXFLAGS="-std=c++20"
 
-eval "$(fzf --zsh)"
-
-# bun
-export BUN_INSTALL="$HOME/Library/Application Support/reflex/bun"
+export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-export PATH="/Users/cjavilla/repos/whisper.cpp:$PATH"
+
+
+# # Set prompt to just show ">"
+# PS1="> "
+#
+# # Set prompt to just show ">"
+# PROMPT="> "
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/cjav_dev/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/cjav_dev/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/cjav_dev/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/cjav_dev/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+export GPG_TTY=$(tty)
+
+source $HOME/.cargo/env
+
+set -a && source ~/.env && set +a
+
+eval "$(ssh-agent -s)"

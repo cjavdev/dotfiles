@@ -1,159 +1,103 @@
 {
+  "[erb]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[ruby]": {
+    "editor.defaultFormatter": "rubocop.vscode-rubocop"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "amp.commands.allowlist": [
+    "chmod",
+    "ruby",
+    "true",
+    "timeout",
+    "bundle",
+    "sleep",
+    "jq"
+  ],
+  "amp.mcpServers": {
+    "render": {
+      "headers": {
+        "Authorization": "Bearer rnd_0v5GrtVdmUcJJXOrlQqmWfhmCJrJ"
+      },
+      "url": "https://mcp.render.com/mcp"
+    }
+  },
+  "amp.permissions": [
+    {
+      "action": "allow",
+      "matches": {
+        "cmd": "chmod"
+      },
+      "tool": "Bash"
+    },
+    {
+      "action": "allow",
+      "matches": {
+        "cmd": "ruby"
+      },
+      "tool": "Bash"
+    },
+    {
+      "action": "allow",
+      "matches": {
+        "cmd": "true"
+      },
+      "tool": "Bash"
+    },
+    {
+      "action": "allow",
+      "matches": {
+        "cmd": "timeout"
+      },
+      "tool": "Bash"
+    },
+    {
+      "action": "allow",
+      "matches": {
+        "cmd": "bundle"
+      },
+      "tool": "Bash"
+    },
+    {
+      "action": "allow",
+      "matches": {
+        "cmd": "sleep"
+      },
+      "tool": "Bash"
+    },
+    {
+      "action": "allow",
+      "matches": {
+        "cmd": "jq"
+      },
+      "tool": "Bash"
+    }
+  ],
+  "amp.url": "https://ampcode.com/",
+  "continue.enableDebugLogs": true,
+  "database-client.autoSync": true,
+  "editor.accessibilitySupport": "off",
   "editor.autoClosingBrackets": "never",
   "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
   "editor.inlineSuggest.enabled": true,
   "editor.tabSize": 2,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  "security.workspace.trust.untrustedFiles": "open",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "editor.formatOnSave": true,
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "security.promptForLocalFileProtocolHandling": false,
-  "window.zoomLevel": 0.001,
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 500,
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "vim.digraphs": {},
-  "vim.leader": " ",
-  "workbench.colorTheme": "Night Owl",
-  "vim.insertModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<C-s>"],
-      "commands": [
-        { "command": "workbench.action.files.save" },
-        { "command": "extension.vim_escape" }
-      ]
-    }
-  ],
-  "vim.normalModeKeyBindings": [
-    {
-      "before": ["<leader>", "a"],
-      "commands": [
-        {
-          "command": "workbench.action.terminal.sendSequence",
-          "args": {
-            "text": "\u000Dclear\u000Dbin/rails test \"${file}\"\u000D"
-          }
-        }
-      ]
-    },
-    {
-      "before": ["<leader>", "h"],
-      "commands": [
-        {
-          "command": "workbench.action.terminal.sendSequence",
-          "args": {
-            "text": "\u000Dclear\u000Dbin/rails test \"${file}:${lineNumber}\"\u000D"
-          }
-        }
-      ]
-    },
-    {
-      "before": ["<leader>", "\\"],
-      "commands": [
-        {
-          "command": "workbench.action.splitEditorRight"
-        }
-      ]
-    },
-    {
-      "before": ["<leader>", "-"],
-      "commands": [
-        {
-          "command": "workbench.action.splitEditorDown"
-        }
-      ]
-    },
-    {
-      "before": ["<C-h>"],
-      "commands": [
-        {
-          "command": "workbench.action.focusLeftGroup"
-        }
-      ]
-    },
-    {
-      "before": ["<C-h>"],
-      "commands": [
-        {
-          "command": "workbench.action.focusLeftGroup"
-        }
-      ]
-    },
-    {
-      "before": ["<C-l>"],
-      "commands": [
-        {
-          "command": "workbench.action.focusRightGroup"
-        }
-      ]
-    },
-    {
-      "before": ["<C-k>"],
-      "commands": [
-        {
-          "command": "workbench.action.focusAboveGroup"
-        }
-      ]
-    },
-    {
-      "before": ["<C-j>"],
-      "commands": [
-        {
-          "command": "workbench.action.focusBelowGroup"
-        },
-        {
-          "command": "workbench.action.terminal.focus",
-          "when": "editorGroup == 'bottom'"
-        }
-      ]
-    },
-    {
-      "before": ["<leader>", "v"],
-      "commands": [
-        {
-          "command": "workbench.files.action.showActiveFileInExplorer"
-        }
-      ]
-    },
-    {
-      "before": ["g", "f"],
-      "commands": [
-        {
-          "command": "editor.action.revealDefinition"
-        }
-      ]
-    }
-  ],
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "rubyLsp.enabledFeatures": {
-    "codeActions": true,
-    "diagnostics": true,
-    "documentHighlights": true,
-    "documentLink": true,
-    "documentSymbols": true,
-    "foldingRanges": true,
-    "formatting": true,
-    "hover": true,
-    "inlayHint": true,
-    "onTypeFormatting": true,
-    "selectionRanges": true,
-    "semanticHighlighting": true,
-    "completion": true,
-    "codeLens": true,
-    "definition": true,
-    "workspaceSymbol": true,
-    "signatureHelp": true,
-    "typeHierarchy": true
-  },
+  "files.trimTrailingWhitespace": true,
+  "githubPullRequests.terminalLinksHandler": "github",
+  "go.toolsManagement.autoUpdate": true,
   "headwind.defaultSortOrder": [
     "container",
     "box-border",
@@ -1909,22 +1853,202 @@
     "stroke-2",
     "clear-left"
   ],
-  "workbench.activityBar.location": "hidden",
-  "continue.enableDebugLogs": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
   "rubocop.mode": "enableUnconditionally",
-  "files.trimTrailingWhitespace": true,
-  "[erb]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "rubyLsp.enabledFeatures": {
+    "codeActions": true,
+    "codeLens": true,
+    "completion": true,
+    "definition": true,
+    "diagnostics": true,
+    "documentHighlights": true,
+    "documentLink": true,
+    "documentSymbols": true,
+    "foldingRanges": true,
+    "formatting": true,
+    "hover": true,
+    "inlayHint": true,
+    "onTypeFormatting": true,
+    "selectionRanges": true,
+    "semanticHighlighting": true,
+    "signatureHelp": true,
+    "typeHierarchy": true,
+    "workspaceSymbol": true
   },
-  "[ruby]": {
-    "editor.defaultFormatter": "rubocop.vscode-rubocop"
-  },
-  "rubyLsp.formatter": "rubocop",
-  "workbench.editor.editorActionsLocation": "titleBar",
-  "githubPullRequests.terminalLinksHandler": "github",
   "rubyLsp.featureFlags": {
     "all": true
   },
+  "rubyLsp.formatter": "rubocop",
+  "security.promptForLocalFileProtocolHandling": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "terminal.integrated.env.osx": {
+    "Q_NEW_SESSION": "1"
+  },
+  "terminal.integrated.persistentSessionScrollback": 100000000,
   "terminal.integrated.scrollback": 100000000,
-  "terminal.integrated.persistentSessionScrollback": 100000000
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "vim.digraphs": {},
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<C-s>"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.files.save"
+        },
+        {
+          "command": "extension.vim_escape"
+        }
+      ]
+    }
+  ],
+  "vim.leader": " ",
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [
+        "<leader>",
+        "a"
+      ],
+      "commands": [
+        {
+          "args": {
+            "text": "\rclear\rbin/rails test \"${file}\"\r"
+          },
+          "command": "workbench.action.terminal.sendSequence"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "h"
+      ],
+      "commands": [
+        {
+          "args": {
+            "text": "\rclear\rbin/rails test \"${file}:${lineNumber}\"\r"
+          },
+          "command": "workbench.action.terminal.sendSequence"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "\\"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.splitEditorRight"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "-"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.splitEditorDown"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<C-h>"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.focusLeftGroup"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<C-h>"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.focusLeftGroup"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<C-l>"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.focusRightGroup"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<C-k>"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.focusAboveGroup"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<C-j>"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.focusBelowGroup"
+        },
+        {
+          "command": "workbench.action.terminal.focus",
+          "when": "editorGroup == 'bottom'"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "v"
+      ],
+      "commands": [
+        {
+          "command": "workbench.files.action.showActiveFileInExplorer"
+        }
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "f"
+      ],
+      "commands": [
+        {
+          "command": "editor.action.revealDefinition"
+        }
+      ]
+    }
+  ],
+  "window.zoomLevel": 0.001,
+  "workbench.activityBar.location": "hidden",
+  "workbench.colorTheme": "Night Owl",
+  "workbench.editor.editorActionsLocation": "titleBar",
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.js",
+    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+    "*.jsx": "${capture}.js",
+    "*.tsx": "${capture}.ts",
+    "tsconfig.json": "tsconfig.*.json",
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb, bun.lock",
+    "*.sqlite": "${capture}.${extname}-*",
+    "*.db": "${capture}.${extname}-*",
+    "*.sqlite3": "${capture}.${extname}-*",
+    "*.db3": "${capture}.${extname}-*",
+    "*.sdb": "${capture}.${extname}-*",
+    "*.s3db": "${capture}.${extname}-*"
+  }
 }

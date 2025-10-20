@@ -96,16 +96,13 @@ fi
 fancy_echo "Updating Homebrew formulae ..."
 brew update --force # https://github.com/Homebrew/brew/issues/1151
 brew bundle --file=- <<EOF
-tap "heroku/brew"
 
 
 # Unix
 brew "git"
 brew "openssl"
-brew "fzf"
 brew "neovim"
 brew "zsh"
-brew "the_silver_searcher"
 brew "wget"
 
 # Image and video
@@ -127,7 +124,6 @@ brew "yarn"
 brew "redis", restart_service: :changed
 
 # Dependencies
-brew "pnpm"
 brew "stripe/stripe-cli/stripe"
 EOF
 
@@ -183,7 +179,6 @@ bundle config --global jobs $((number_of_cores - 1))
 
 fancy_echo "Installing latest Node ..."
 install_asdf_language "nodejs"
-install_asdf_language "nodejs" "18.16.0"
 
 
 if [ -f "$HOME/.laptop.local" ]; then
