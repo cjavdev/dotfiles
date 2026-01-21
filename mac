@@ -117,19 +117,13 @@ brew "jq"
 brew "libyaml" # should come after openssl
 brew "coreutils"
 brew "yarn"
+brew "pnpm"
 
 # Databases
 # Install Postgres with Postgress.app instead
 # brew "postgresql@14", restart_service: :changed
 brew "redis", restart_service: :changed
-
-# Dependencies
-brew "stripe/stripe-cli/stripe"
 EOF
-
-# fancy_echo "Update heroku binary ..."
-# brew unlink heroku
-# brew link --force heroku
 
 fancy_echo "Configuring asdf version manager ..."
 if [ ! -d "$HOME/.asdf" ]; then
@@ -142,10 +136,10 @@ add_or_update_asdf_plugin() {
   local name="$1"
   local url="$2"
 
-  if ! asdf plugin-list | grep -Fq "$name"; then
-    asdf plugin-add "$name" "$url"
+  if ! asdf plugin list | grep -Fq "$name"; then
+    asdf plugin add "$name" "$url"
   else
-    asdf plugin-update "$name"
+    asdf plugin update "$name"
   fi
 }
 
@@ -153,6 +147,10 @@ add_or_update_asdf_plugin() {
 . "$(brew --prefix asdf)/libexec/asdf.sh"
 add_or_update_asdf_plugin "ruby" "https://github.com/asdf-vm/asdf-ruby.git"
 add_or_update_asdf_plugin "nodejs" "https://github.com/asdf-vm/asdf-nodejs.git"
+add_or_update_asdf_plugin "golang" "https://github.com/asdf-community/asdf-golang.git"
+add_or_update_asdf_plugin "python" "https://github.com/asdf-community/asdf-python.git"
+# add_or_update_asdf_plugin "php" "https://github.com/asdf-community/asdf-php.git"
+
 
 # Accepts optional version as second argument
 install_asdf_language() {
@@ -160,7 +158,7 @@ install_asdf_language() {
   local version
   if [ -z "$2" ];
   then
-    version="$(asdf list-all "$language" | grep -v "[a-z]" | tail -1)"
+    version="$(asdf list all "$language" | grep -v "[a-z]" | tail -1)"
   else
     version="$2"
   fi
@@ -180,6 +178,15 @@ bundle config --global jobs $((number_of_cores - 1))
 fancy_echo "Installing latest Node ..."
 install_asdf_language "nodejs"
 
+fancy_echo "Installing latest Go ..."
+install_asdf_language "golang"
+
+fancy_echo "Installing latest Python ..."
+install_asdf_language "python"
+
+# fancy_echo "Installing latest PHP ..."
+# install_asdf_language "php"
+
 
 if [ -f "$HOME/.laptop.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop.local ..."
@@ -196,24 +203,5 @@ ln -sf ~/repos/dotfiles/zshrc ~/.zshrc
 
 fancy_echo "Creating nvim folder if it doesnt exist"
 mkdir -p ~/.config/nvim
+ln -sf ~/repos/dotfiles/nvim ~/.config/nvim
 
-
-fancy_echo "Symlinking..."
-ln -sf ~/repos/dotfiles/vimrc ~/.config/nvim/init.vim
-ln -sf ~/repos/dotfiles/vimrc.bundles ~/.vimrc.bundles
-cp ~/repos/dotfiles/cjav_dev.zsh-theme ~/.oh-my-zsh/themes/cjav_dev.zsh-theme
-
-fancy_echo "Cloning vundle"
-
-if [ ! "$HOME/.vim/bundle/Vundle.vim" ]; then
-  fancy_echo "Installing Vundle"
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-  fancy_echo "Installing plugins"
-  vim +PluginInstall +qall
-fi
-
-
-fancy_echo "pnpm setup"
-pnpm setup
-pnpm install turbo --global

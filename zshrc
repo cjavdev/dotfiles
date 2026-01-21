@@ -1,5 +1,7 @@
+ZSH_THEME="stainless" # set by `omz`
+
 # Amazon Q pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
+# [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -10,7 +12,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="cjav_dev"
+ZSH_THEME="stainless"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -80,6 +82,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# History configuration
+HISTSIZE=50000
+SAVEHIST=50000
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -109,6 +115,7 @@ alias ga="git add"
 alias artisan="php artisan"
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 alias $=''
+alias ls='ls -AG'
 
 export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
@@ -137,16 +144,28 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # # Set prompt to just show ">"
 # PROMPT="> "
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/cjav_dev/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/cjav_dev/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+# # The next line updates PATH for the Google Cloud SDK.
+# if [ -f '/Users/cjav_dev/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/cjav_dev/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+#
+# # The next line enables shell command completion for gcloud.
+# if [ -f '/Users/cjav_dev/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/cjav_dev/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/cjav_dev/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/cjav_dev/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# For rectangle window manager almost maximize:
+defaults write com.knollsoft.Rectangle almostMaximizeHeight -float 0.99
+defaults write com.knollsoft.Rectangle almostMaximizeWidth -float 0.99
+
 
 export GPG_TTY=$(tty)
 
-source $HOME/.cargo/env
-
-set -a && source ~/.env && set +a
+# set -a && source ~/.env && set +a
 
 eval "$(ssh-agent -s)"
+# eval "$(zoxide init zsh --cmd cd)"
+
+# Added by Antigravity
+export PATH="/Users/cjav_dev/.antigravity/antigravity/bin:$PATH"
+export PATH="/opt/homebrew/opt/libxml2/bin:$PATH"
+alias pnp='/opt/homebrew/bin/pnpm'
+
+# . "$HOME/.local/bin/env"

@@ -1,5 +1,16 @@
 return {
 	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				ensure_installed = { "lua", "typescript", "javascript", "json", "yaml", "markdown" },
+				auto_install = true,
+				highlight = { enable = true },
+			})
+		end,
+	},
+	{
 		"mason-org/mason.nvim",
 		config = function()
 			require("mason").setup()
@@ -19,12 +30,23 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = { "mason-lspconfig.nvim" },
 		config = function()
-			-- TypeScript/JavaScript using new vim.lsp.config API
-			vim.lsp.config.ts_ls = {
-				cmd = { "typescript-language-server", "--stdio" },
-				root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
-				filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
-			}
+			local lspconfig = require("lspconfig")
+			local configs = require("lspconfig.configs")
+
+			-- TypeScript
+			lspconfig.ts_ls.setup({})
+
+			-- Stainless LSP (custom server)
+			if not configs.stainless_ls then
+				configs.stainless_ls = {
+					default_config = {
+						cmd = { "stainless-language-server", "--stdio" },
+						filetypes = { "yaml", "json" },
+						root_dir = lspconfig.util.root_pattern(".stainless"),
+					},
+				}
+			end
+			lspconfig.stainless_ls.setup({})
 
 			-- Global LSP keybindings
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
